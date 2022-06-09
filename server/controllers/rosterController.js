@@ -10,4 +10,13 @@ const createPlayer = async (req, res) => {
   }
 }
 
-export { createPlayer }
+const getPlayers = async (req, res) => {
+  try {
+    const players = await Player.find()
+    res.status(200).send(players)
+  } catch (error) {
+    res.status(500).json({ msg: 'fetch failed, there was an error' })
+  }
+}
+
+export { createPlayer, getPlayers }

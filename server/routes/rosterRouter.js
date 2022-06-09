@@ -1,8 +1,9 @@
 import express from 'express'
 const router = express.Router()
 
-import { createPlayer } from '../controllers/rosterController.js'
+import { createPlayer, getPlayers } from '../controllers/rosterController.js'
 
-router.route('/').post(createPlayer)
+// posting and fetching players
+router.route('/').post(createPlayer).get(getPlayers)
 
 export default router

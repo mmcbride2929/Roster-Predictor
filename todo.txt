@@ -1,0 +1,7 @@
+-create home and results page
+
+-add chakra and context
+
+-fetch players on homepage and pass to allPlayers and finalRoster
+
+-display fetched items on 
