@@ -1,7 +1,20 @@
--create home and results page
+
+
+
+- favcon
+
+-fetch players on homepage and pass to allPlayers
+ 
+ - set inventory in state
+
+- map players on allPlayers
 
 -add chakra and context
 
--fetch players on homepage and pass to allPlayers and finalRoster
+- add add button to all allPlayers
+
+- need global roster and all player state
+
+- create roster component
 
 -display fetched items on 
