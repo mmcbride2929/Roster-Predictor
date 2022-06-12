@@ -1,38 +1,60 @@
-import {
-  chakra,
-  Flex,
-  useColorModeValue,
-  Button,
-  useBreakpointValue,
-  Stack,
-  SimpleGrid,
-} from '@chakra-ui/react'
+import { chakra, Flex, Box, Button, SimpleGrid } from '@chakra-ui/react'
+import { useContext } from 'react'
 
-const AllPlayersTable = ({ roster }) => {
+import HomeContext from '../../context/HomeContext'
+
+const AllPlayersTable = () => {
+  const { allPlayers, setAllPlayers, finalRoster, setFinalRoster } =
+    useContext(HomeContext)
+
+  const handleAdd = (playerName) => {
+    // get selected player object from allPlayers
+    const promotedPlayerObject = allPlayers.filter(
+      (p) => p.name === playerName.target.value
+    )
+
+    // add playerObject to finalRoster
+    finalRoster.push(promotedPlayerObject[0])
+    //setFinalRoster(...finalRoster, promotedPlayerObject[0])
+
+    // remove chosen player in allPlayers
+    setAllPlayers(
+      allPlayers.filter((p) => {
+        return p.name !== playerName.target.value
+      })
+    )
+  }
+
   return (
-    <Flex w="full" bg="blue" p={50} alignItems="center" justifyContent="center">
-      <Stack
+    <Flex
+      w="full"
+      bg="blue"
+      p="20px"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Box
         direction={{ base: 'column' }}
         w="full"
         bg={{ md: 'green' }}
         shadow="lg"
       >
-        {roster.map((person) => {
+        {allPlayers.map((p) => {
           return (
             <Flex
-              direction={{ base: 'row', md: 'column' }}
+              direction={{ base: 'column', md: 'column' }}
               bg="silver"
-              key={person._id}
+              key={p._id}
             >
               <SimpleGrid
                 spacingY={3}
-                columns={{ base: 1, md: 3 }}
-                w={{ base: 120, md: 'full' }}
+                columns={{ base: 3, md: 3 }}
+                w={{ base: 'full', md: 'full' }}
                 textTransform="uppercase"
                 bg="purple"
                 color="gold"
                 py={{ base: 1, md: 4 }}
-                px={{ base: 2, md: 10 }}
+                px={{ base: 0, md: 10 }}
                 fontSize="md"
                 fontWeight="hairline"
               >
@@ -42,30 +64,36 @@ const AllPlayersTable = ({ roster }) => {
               </SimpleGrid>
               <SimpleGrid
                 spacingY={3}
-                columns={{ base: 1, md: 3 }}
+                columns={{ base: 3, md: 3 }}
                 w="full"
                 py={2}
-                px={10}
+                px={0}
                 fontWeight="hairline"
               >
-                <span>{person.name}</span>
+                <span>{p.name}</span>
                 <chakra.span
                   textOverflow="ellipsis"
                   overflow="hidden"
                   whiteSpace="nowrap"
                 >
-                  {person.number}
+                  {p.number}
                 </chakra.span>
                 <Flex justify={{ md: 'end' }}>
-                  <Button variant="solid" colorScheme="red" size="sm">
-                    Delete
+                  <Button
+                    variant="solid"
+                    colorScheme="red"
+                    size="sm"
+                    value={p.name}
+                    onClick={handleAdd}
+                  >
+                    Promote
                   </Button>
                 </Flex>
               </SimpleGrid>
             </Flex>
           )
         })}
-      </Stack>
+      </Box>
     </Flex>
   )
 }

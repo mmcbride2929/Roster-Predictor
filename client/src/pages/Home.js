@@ -1,24 +1,25 @@
 import axios from 'axios'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 
 import AllPlayersTable from '../components/Home/AllPlayersTable'
 import FinalRosterTable from '../components/Home/FinalRosterTable'
+import HomeContext from '../context/HomeContext'
 
 const Home = () => {
-  const [roster, setRoster] = useState([])
+  const { allPlayers, setAllPlayers } = useContext(HomeContext)
+
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchRoster = async () => {
       const response = await axios.get(`http://localhost:5000/api/v1/roster`)
 
-      setRoster(response.data)
-      
+      setAllPlayers(response.data)
+
       setLoading(false)
     }
 
-    const players = fetchRoster()
+    fetchRoster()
   }, [])
   return (
     <>
@@ -26,7 +27,7 @@ const Home = () => {
         <div>Loading</div>
       ) : (
         <>
-          <AllPlayersTable roster={roster} />
+          <AllPlayersTable roster={allPlayers} />
 
           <FinalRosterTable />
         </>

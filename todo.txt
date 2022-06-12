@@ -3,18 +3,22 @@
 
 - favcon
 
--fetch players on homepage and pass to allPlayers
+
+
+consume context and final roster component
  
- - set inventory in state
+ 
 
-- map players on allPlayers
 
--add chakra and context
+
+
 
 - add add button to all allPlayers
 
-- need global roster and all player state
 
-- create roster component
+ create final roster state in context
 
--display fetched items on 
+ consume context in final roster
+
+
+-display final raster players 
