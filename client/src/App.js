@@ -1,15 +1,22 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import { HomeProvider } from './context/HomeContext'
+import { RosterProvider } from './context/RosterContext'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
+import Results from './pages/Results'
 
 const app = () => {
   return (
     <div className="app">
       <ChakraProvider>
-        <HomeProvider>
-          <Home />
-        </HomeProvider>
+        <RosterProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/results" element={<Results />} />
+            </Routes>
+          </BrowserRouter>
+        </RosterProvider>
       </ChakraProvider>
     </div>
   )

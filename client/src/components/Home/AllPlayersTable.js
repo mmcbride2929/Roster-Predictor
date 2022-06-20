@@ -1,11 +1,11 @@
 import { chakra, Flex, Box, Button, SimpleGrid } from '@chakra-ui/react'
 import { useContext } from 'react'
 
-import HomeContext from '../../context/HomeContext'
+import RosterContext from '../../context/RosterContext'
 
 const AllPlayersTable = () => {
   const { allPlayers, setAllPlayers, finalRoster, setFinalRoster } =
-    useContext(HomeContext)
+    useContext(RosterContext)
 
   const handleAdd = (playerName) => {
     // get selected player object from allPlayers
@@ -14,8 +14,7 @@ const AllPlayersTable = () => {
     )
 
     // add playerObject to finalRoster
-    finalRoster.push(promotedPlayerObject[0])
-    //setFinalRoster(...finalRoster, promotedPlayerObject[0])
+    setFinalRoster([...finalRoster, promotedPlayerObject[0]])
 
     // remove chosen player in allPlayers
     setAllPlayers(

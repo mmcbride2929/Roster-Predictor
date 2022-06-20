@@ -5,20 +5,19 @@
 
 
 
-consume context and final roster component
+
  
  
 
 
 
 
+- create counter people know how many players are left available
 
-- add add button to all allPlayers
+- create submit button
+- on submit go to new page
+- un submit count positions
+- onSubmit consume context in final roster on new page and display players by irrespective position
 
 
- create final roster state in context
 
- consume context in final roster
-
-
--display final raster players 

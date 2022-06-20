@@ -1,19 +1,19 @@
 import { useState, createContext } from 'react'
 
-const HomeContext = createContext()
+const RosterContext = createContext()
 
-export const HomeProvider = ({ children }) => {
+export const RosterProvider = ({ children }) => {
   // homepage state
   const [allPlayers, setAllPlayers] = useState([])
   const [finalRoster, setFinalRoster] = useState([])
 
   return (
-    <HomeContext.Provider
+    <RosterContext.Provider
       value={{ allPlayers, setAllPlayers, finalRoster, setFinalRoster }}
     >
       {children}
-    </HomeContext.Provider>
+    </RosterContext.Provider>
   )
 }
 
-export default HomeContext
+export default RosterContext

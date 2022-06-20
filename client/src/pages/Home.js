@@ -3,10 +3,11 @@ import { useState, useContext, useEffect } from 'react'
 
 import AllPlayersTable from '../components/Home/AllPlayersTable'
 import FinalRosterTable from '../components/Home/FinalRosterTable'
-import HomeContext from '../context/HomeContext'
+import Submit from '../components/Home/Submit'
+import RosterContext from '../context/RosterContext'
 
 const Home = () => {
-  const { allPlayers, setAllPlayers } = useContext(HomeContext)
+  const { allPlayers, setAllPlayers } = useContext(RosterContext)
 
   const [loading, setLoading] = useState(true)
 
@@ -28,8 +29,8 @@ const Home = () => {
       ) : (
         <>
           <AllPlayersTable roster={allPlayers} />
-
           <FinalRosterTable />
+          <Submit />
         </>
       )}
     </>
