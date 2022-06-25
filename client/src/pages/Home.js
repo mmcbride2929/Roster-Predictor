@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 
 import AllPlayersTable from '../components/Home/AllPlayersTable'
 import FinalRosterTable from '../components/Home/FinalRosterTable'
+import FilterByContainer from '../components/Home/FilterByContainer'
 import Submit from '../components/Home/Submit'
 import RosterContext from '../context/RosterContext'
 
@@ -28,6 +29,7 @@ const Home = () => {
         <div>Loading</div>
       ) : (
         <>
+          <FilterByContainer />
           <AllPlayersTable roster={allPlayers} />
           <FinalRosterTable />
           <Submit />

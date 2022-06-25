@@ -1,39 +1,6 @@
 import { chakra, Flex, Box, Button, SimpleGrid } from '@chakra-ui/react'
 
-import { useContext } from 'react'
-
-import RosterContext from '../../context/RosterContext'
-
-const FinalRosterTable = () => {
-  const {
-    allPlayers,
-    setAllPlayers,
-    finalRoster,
-    setFinalRoster,
-    filterArray,
-    setFilterArray,
-  } = useContext(RosterContext)
-
-  const handleDelete = (playerName) => {
-    // get selected player object from finalRoster
-    const removedPlayerObject = finalRoster.filter(
-      (p) => p.name === playerName.target.value
-    )
-
-    // add playerObject to finalRoster
-    setAllPlayers([...allPlayers, removedPlayerObject[0]])
-
-    // add playerObject to filterArray
-    setFilterArray([...filterArray, removedPlayerObject[0]])
-
-    // remove chosen player in finalRaster
-    setFinalRoster(
-      finalRoster.filter((p) => {
-        return p.name !== playerName.target.value
-      })
-    )
-  }
-
+const ResultsTable = ({ finalRoster }) => {
   return (
     <Flex
       w="full"
@@ -67,9 +34,9 @@ const FinalRosterTable = () => {
                 fontSize="md"
                 fontWeight="hairline"
               >
-                <span>Name</span>
-                <span>Email</span>
-                <chakra.span textAlign={{ md: 'right' }}>Actions</chakra.span>
+                <chakra.span>Name</chakra.span>
+                <chakra.span>Position</chakra.span>
+                <chakra.span>Number</chakra.span>
               </SimpleGrid>
               <SimpleGrid
                 spacingY={3}
@@ -85,19 +52,16 @@ const FinalRosterTable = () => {
                   overflow="hidden"
                   whiteSpace="nowrap"
                 >
+                  {p.position}
+                </chakra.span>
+
+                <chakra.span
+                  textOverflow="ellipsis"
+                  overflow="hidden"
+                  whiteSpace="nowrap"
+                >
                   {p.number}
                 </chakra.span>
-                <Flex justify={{ md: 'end' }}>
-                  <Button
-                    variant="solid"
-                    colorScheme="red"
-                    size="sm"
-                    value={p.name}
-                    onClick={handleDelete}
-                  >
-                    Remove
-                  </Button>
-                </Flex>
               </SimpleGrid>
             </Flex>
           )
@@ -106,4 +70,4 @@ const FinalRosterTable = () => {
     </Flex>
   )
 }
-export default FinalRosterTable
+export default ResultsTable

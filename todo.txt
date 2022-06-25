@@ -2,22 +2,30 @@
 
 
 - favcon
+- create header and footer
 
 
+*** homepage
 
-
- 
- 
-
-
-
+- create tabs to show only players by position(ol,qb, all..) 
+- create search bar that displays players wind searched
 
 - create counter people know how many players are left available
 
-- create submit button
-- on submit go to new page
-- un submit count positions
-- onSubmit consume context in final roster on new page and display players by irrespective position
+- add position section to table
+
+- final roster needs to have same jsx as all players + TableRow
 
 
+*** results page
+- onSubmit consume context in final roster on new page and display players by respective position
+
+
+
+
+- create a table with tabs, offense defense special teams, all players (show all by default)
+
+
+
+- have a share button that has a unique link
 

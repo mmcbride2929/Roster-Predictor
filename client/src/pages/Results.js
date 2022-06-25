@@ -1,4 +1,14 @@
+import { useContext } from 'react'
+import ResultsTable from '../components/Results/ResultsTable'
+
+import RosterContext from '../context/RosterContext'
+
 const Results = () => {
-  return <div>Results page</div>
+  const { finalRoster } = useContext(RosterContext)
+  return (
+    <>
+      <ResultsTable finalRoster={finalRoster} />
+    </>
+  )
 }
 export default Results
