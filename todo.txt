@@ -1,5 +1,13 @@
 
 
+***Now
+
+- delete the table.. have different sections for each position... have buttons onclick hide all other buttons besides specifically clicked buttons.
+-create component that consumes final roster & displays all positions
+
+to add: fb
+
+***Misc
 
 - favcon
 - create header and footer
@@ -7,25 +15,17 @@
 
 *** homepage
 
-- create tabs to show only players by position(ol,qb, all..) 
-- create search bar that displays players wind searched
-
 - create counter people know how many players are left available
 
 - add position section to table
 
-- final roster needs to have same jsx as all players + TableRow
+- finalsmoke billows out he actually hoists himself into the body building roster needs to have same jsx as all players + TableRow
 
 
 *** results page
 - onSubmit consume context in final roster on new page and display players by respective position
 
-
-
-
 - create a table with tabs, offense defense special teams, all players (show all by default)
-
-
 
 - have a share button that has a unique link
 

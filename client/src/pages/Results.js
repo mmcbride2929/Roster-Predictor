@@ -1,13 +1,9 @@
-import { useContext } from 'react'
-import ResultsTable from '../components/Results/ResultsTable'
-
-import RosterContext from '../context/RosterContext'
+import SectionContainer from '../components/Results/SectionContainer'
 
 const Results = () => {
-  const { finalRoster } = useContext(RosterContext)
   return (
     <>
-      <ResultsTable finalRoster={finalRoster} />
+      <SectionContainer />
     </>
   )
 }

@@ -6,6 +6,7 @@ import FinalRosterTable from '../components/Home/FinalRosterTable'
 import FilterByContainer from '../components/Home/FilterByContainer'
 import Submit from '../components/Home/Submit'
 import RosterContext from '../context/RosterContext'
+import PlayerCounter from '../components/Home/PlayerCounter'
 
 const Home = () => {
   const { allPlayers, setAllPlayers } = useContext(RosterContext)
@@ -30,7 +31,9 @@ const Home = () => {
       ) : (
         <>
           <FilterByContainer />
+
           <AllPlayersTable roster={allPlayers} />
+          <PlayerCounter />
           <FinalRosterTable />
           <Submit />
         </>

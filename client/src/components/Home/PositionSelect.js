@@ -4,34 +4,55 @@ import { useContext } from 'react'
 import RosterContext from '../../context/RosterContext'
 
 const PositionSelect = () => {
-  const { allPlayers, setAllPlayers, setFilterArray, setFilter } =
-    useContext(RosterContext)
+  const {
+    allPlayers,
+    setFilterArray,
+    setSelectFilter,
+    inputFilter,
+    filterByName,
+    filterByPosition,
+  } = useContext(RosterContext)
 
   const handleChange = (position) => {
-    if (position.target.value === 'All') {
+    setSelectFilter(position.target.value)
+
+    if (position.target.value === 'All' && inputFilter === '') {
       setFilterArray([])
-      setFilter(false)
-    } else {
-      setFilterArray(
-        allPlayers.filter((player) => player.position === position.target.value)
-      )
-      setFilter(true)
+    }
+
+    if (position.target.value !== 'All' && inputFilter === '') {
+      // filtering players by position
+      setFilterArray(filterByPosition(allPlayers, position.target.value))
+    }
+
+    if (position.target.value !== 'All' && inputFilter !== '') {
+      // filtering players by matching letter
+      const matches = filterByName(inputFilter)
+
+      // filtering matches by position
+      setFilterArray(filterByPosition(matches, position.target.value))
+    }
+
+    if (position.target.value === 'All' && inputFilter !== '') {
+      setFilterArray(filterByName(inputFilter))
     }
   }
 
   return (
     <Select onChange={handleChange}>
-      <option value="All" selected>
-        All
-      </option>
+      <option value="All">All</option>
       <option value="QB">QB</option>
-      <option value="WR">WR</option>
       <option value="RB">RB</option>
+      <option value="FB">FB</option>
       <option value="TE">TE</option>
-      <option value="T">T</option> <option value="IOL">IOL</option>
-      <option value="CB">CB</option> <option value="S">S</option>
-      <option value="DL">DL</option> <option value="DE">DE</option>
-      <option value="LB">LB</option> <option value="OLB">OLB</option>
+      <option value="WR">WR</option>
+      <option value="T">T</option>
+      <option value="IOL">IOL</option>
+      <option value="DL">DL</option>
+      <option value="OLB">OLB</option>
+      <option value="LB">LB</option>
+      <option value="CB">CB</option>
+      <option value="S">S</option>
       <option value="K">K</option>
       <option value="P">P</option>
     </Select>

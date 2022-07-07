@@ -12,31 +12,34 @@ const AllPlayersTable = () => {
     setFinalRoster,
     filterArray,
     setFilterArray,
-    filter,
+    selectFilter,
+    inputFilter,
   } = useContext(RosterContext)
 
   const handleAdd = (playerName) => {
-    // get selected player object from allPlayers
-    const promotedPlayerObject = allPlayers.filter(
-      (p) => p.name === playerName.target.value
-    )
+    if (finalRoster.length < 53) {
+      // get selected player object from allPlayers
+      const promotedPlayerObject = allPlayers.filter(
+        (p) => p.name === playerName.target.value
+      )
 
-    // add playerObject to finalRoster
-    setFinalRoster([...finalRoster, promotedPlayerObject[0]])
+      // add playerObject to finalRoster
+      setFinalRoster([...finalRoster, promotedPlayerObject[0]])
 
-    // remove chosen player in allPlayers
-    setAllPlayers(
-      allPlayers.filter((p) => {
-        return p.name !== playerName.target.value
-      })
-    )
+      // remove chosen player in allPlayers
+      setAllPlayers(
+        allPlayers.filter((p) => {
+          return p.name !== playerName.target.value
+        })
+      )
 
-    // deleting player from filter array
-    setFilterArray(
-      filterArray.filter((p) => {
-        return p.name !== playerName.target.value
-      })
-    )
+      // deleting player from filter array
+      setFilterArray(
+        filterArray.filter((p) => {
+          return p.name !== playerName.target.value
+        })
+      )
+    }
   }
 
   return (
@@ -53,7 +56,7 @@ const AllPlayersTable = () => {
         bg={{ md: 'green' }}
         shadow="lg"
       >
-        {filter
+        {selectFilter !== 'All' || inputFilter !== ''
           ? filterArray.map((p) => {
               return <TableRow key={p._id} player={p} handleAdd={handleAdd} />
             })

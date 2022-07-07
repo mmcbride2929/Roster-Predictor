@@ -10,6 +10,9 @@ const FinalRosterTable = () => {
     setAllPlayers,
     finalRoster,
     setFinalRoster,
+    selectFilter,
+    inputFilter,
+    setInputArray,
     filterArray,
     setFilterArray,
   } = useContext(RosterContext)
@@ -23,8 +26,13 @@ const FinalRosterTable = () => {
     // add playerObject to finalRoster
     setAllPlayers([...allPlayers, removedPlayerObject[0]])
 
-    // add playerObject to filterArray
-    setFilterArray([...filterArray, removedPlayerObject[0]])
+    // add playerObject to filterArray if his position matches the filter
+    if (
+      removedPlayerObject[0].position === selectFilter ||
+      removedPlayerObject[0].position === 'All'
+    ) {
+      setFilterArray([...filterArray, removedPlayerObject[0]])
+    }
 
     // remove chosen player in finalRaster
     setFinalRoster(
