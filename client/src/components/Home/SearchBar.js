@@ -1,6 +1,6 @@
 import { SearchIcon } from '@chakra-ui/icons'
 import RosterContext from '../../context/RosterContext'
-import { Input } from '@chakra-ui/react'
+import { Input, InputGroup, chakra, InputLeftElement } from '@chakra-ui/react'
 import { useContext, useState } from 'react'
 
 const SearchBar = () => {
@@ -8,6 +8,7 @@ const SearchBar = () => {
     allPlayers,
     setFilterArray,
     selectFilter,
+    inputFilter,
     setInputFilter,
     filterByName,
     filterByPosition,
@@ -38,14 +39,17 @@ const SearchBar = () => {
   }
 
   return (
-    <>
-      <SearchIcon />s
-      <Input
-        variant="outline"
-        onChange={handleChange}
-        placeholder="Search All Players"
-      />
-    </>
+    <InputGroup position={'relative'} mt="15px">
+      <InputLeftElement pointerEvents="none" children={<SearchIcon />} />
+      <Input variant="outline" onChange={handleChange} />
+      <chakra.p
+        position={'absolute'}
+        top={{ base: '8px', md: '10px' }}
+        left={{ base: '40px', md: '15px' }}
+      >
+        {inputFilter === '' ? 'Search All Players' : ''}
+      </chakra.p>
+    </InputGroup>
   )
 }
 export default SearchBar

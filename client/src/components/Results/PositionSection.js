@@ -7,7 +7,7 @@ const PositionSection = ({ finalRoster, playerPosition }) => {
     const filteredPlayers = finalRoster.filter(
       (player) => player.position === playerPosition
     )
-    console.log(playerPosition)
+
     return filteredPlayers
   }
 
@@ -17,12 +17,8 @@ const PositionSection = ({ finalRoster, playerPosition }) => {
   return (
     <div>
       <p>{playerPosition}</p>
-      {positionRoom.map((p) => {
-        return (
-          <div>
-            <p>{p.name}</p>
-          </div>
-        )
+      {positionRoom.map((player) => {
+        return <p key={player._id}>{player.name}</p>
       })}
     </div>
   )

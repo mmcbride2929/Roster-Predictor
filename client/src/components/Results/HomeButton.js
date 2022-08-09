@@ -1,13 +1,13 @@
 import { Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-const Submit = () => {
+const HomeButton = () => {
   return (
     <div>
-      <Button>
-        <Link to="/results">Submit</Link>
+      <Button size="sm" variant="outline">
+        <Link to="/">Home</Link>
       </Button>
     </div>
   )
 }
-export default Submit
+export default HomeButton

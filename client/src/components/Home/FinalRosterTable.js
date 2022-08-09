@@ -1,8 +1,9 @@
-import { chakra, Flex, Box, Button, SimpleGrid } from '@chakra-ui/react'
-
+import { chakra, Flex, Box } from '@chakra-ui/react'
+import { CloseIcon } from '@chakra-ui/icons'
 import { useContext } from 'react'
 
 import RosterContext from '../../context/RosterContext'
+import TableRow from './TableRow'
 
 const FinalRosterTable = () => {
   const {
@@ -11,8 +12,6 @@ const FinalRosterTable = () => {
     finalRoster,
     setFinalRoster,
     selectFilter,
-    inputFilter,
-    setInputArray,
     filterArray,
     setFilterArray,
   } = useContext(RosterContext)
@@ -20,7 +19,7 @@ const FinalRosterTable = () => {
   const handleDelete = (playerName) => {
     // get selected player object from finalRoster
     const removedPlayerObject = finalRoster.filter(
-      (p) => p.name === playerName.target.value
+      (player) => player.name === playerName
     )
 
     // add playerObject to finalRoster
@@ -36,82 +35,38 @@ const FinalRosterTable = () => {
 
     // remove chosen player in finalRaster
     setFinalRoster(
-      finalRoster.filter((p) => {
-        return p.name !== playerName.target.value
+      finalRoster.filter((player) => {
+        return player.name !== playerName
       })
     )
   }
 
   return (
-    <Flex
-      w="full"
-      bg="yellow"
-      p="20px"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Box
-        direction={{ base: 'column' }}
-        w="full"
-        bg={{ md: 'green' }}
-        shadow="lg"
-      >
-        {finalRoster.map((p) => {
-          return (
-            <Flex
-              direction={{ base: 'column', md: 'column' }}
-              bg="silver"
-              key={p._id}
-            >
-              <SimpleGrid
-                spacingY={3}
-                columns={{ base: 3, md: 3 }}
-                w={{ base: 'full', md: 'full' }}
-                textTransform="uppercase"
-                bg="purple"
-                color="gold"
-                py={{ base: 1, md: 4 }}
-                px={{ base: 0, md: 10 }}
-                fontSize="md"
-                fontWeight="hairline"
-              >
-                <span>Name</span>
-                <span>Email</span>
-                <chakra.span textAlign={{ md: 'right' }}>Actions</chakra.span>
-              </SimpleGrid>
-              <SimpleGrid
-                spacingY={3}
-                columns={{ base: 3, md: 3 }}
-                w="full"
-                py={2}
-                px={0}
-                fontWeight="hairline"
-              >
-                <span>{p.name}</span>
-                <chakra.span
-                  textOverflow="ellipsis"
-                  overflow="hidden"
-                  whiteSpace="nowrap"
-                >
-                  {p.number}
-                </chakra.span>
-                <Flex justify={{ md: 'end' }}>
-                  <Button
-                    variant="solid"
-                    colorScheme="red"
-                    size="sm"
-                    value={p.name}
-                    onClick={handleDelete}
-                  >
-                    Remove
-                  </Button>
-                </Flex>
-              </SimpleGrid>
-            </Flex>
-          )
-        })}
-      </Box>
+    <Flex maxW="700px" alignItems="center" justifyContent="center">
+      {finalRoster.length > 0 ? (
+        <Box
+          border="1px solid black"
+          direction={{ base: 'column' }}
+          w="full"
+          mt="15px"
+          shadow="lg"
+        >
+          {finalRoster.map((p) => {
+            return (
+              <TableRow
+                key={p._id}
+                Icon="delete"
+                player={p}
+                handleAction={handleDelete}
+              />
+            )
+          })}
+        </Box>
+      ) : (
+        <></>
+      )}
     </Flex>
   )
 }
+
 export default FinalRosterTable

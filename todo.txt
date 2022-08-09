@@ -2,30 +2,31 @@
 
 ***Now
 
-- delete the table.. have different sections for each position... have buttons onclick hide all other buttons besides specifically clicked buttons.
--create component that consumes final roster & displays all positions
 
-to add: fb
 
 ***Misc
 
 - favcon
-- create header and footer
+- create footer
+- update roster
+- host
 
 
 *** homepage
 
-- create counter people know how many players are left available
-
-- add position section to table
-
-- finalsmoke billows out he actually hoists himself into the body building roster needs to have same jsx as all players + TableRow
 
 
 *** results page
-- onSubmit consume context in final roster on new page and display players by respective position
 
-- create a table with tabs, offense defense special teams, all players (show all by default)
+- create a table with tabs, offense defense special teams, all players (show all by default
+t)
 
-- have a share button that has a unique link
+- copy button and back button
 
+- create state that tells whether or not a section has been selected. render sections conditionally based on if anything has been selected or not
+just make an array of string states and cycle through each one
+
+- incorporate copyTo Clipboard , and format the copy of the roster
+
+*** questions
+when do I keep a function/state in context and when do I keep it within a component

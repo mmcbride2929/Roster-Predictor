@@ -1,12 +1,13 @@
+import { Box } from '@chakra-ui/react'
 import axios from 'axios'
 import { useState, useContext, useEffect } from 'react'
 
 import AllPlayersTable from '../components/Home/AllPlayersTable'
 import FinalRosterTable from '../components/Home/FinalRosterTable'
 import FilterByContainer from '../components/Home/FilterByContainer'
-import Submit from '../components/Home/Submit'
 import RosterContext from '../context/RosterContext'
 import PlayerCounter from '../components/Home/PlayerCounter'
+import ResultsButton from '../components/Home/ResultsButton'
 
 const Home = () => {
   const { allPlayers, setAllPlayers } = useContext(RosterContext)
@@ -27,16 +28,15 @@ const Home = () => {
   return (
     <>
       {loading ? (
-        <div>Loading</div>
+        <Box>Loading</Box>
       ) : (
-        <>
-          <FilterByContainer />
-
-          <AllPlayersTable roster={allPlayers} />
+        <Box p="15px">
           <PlayerCounter />
+          <FilterByContainer />
+          <AllPlayersTable roster={allPlayers} />
           <FinalRosterTable />
-          <Submit />
-        </>
+          <ResultsButton />
+        </Box>
       )}
     </>
   )

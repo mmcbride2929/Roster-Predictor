@@ -2,8 +2,6 @@ import { useContext } from 'react'
 import RosterContext from '../../context/RosterContext'
 import PositionSection from './PositionSection'
 
-// create state that tells whether or not a section has been selected. render sections conditionally based on if anything has been selected or not
-
 const SectionContainer = () => {
   const { finalRoster } = useContext(RosterContext)
   return (
@@ -15,7 +13,7 @@ const SectionContainer = () => {
       <PositionSection finalRoster={finalRoster} playerPosition={'WR'} />
       <PositionSection finalRoster={finalRoster} playerPosition={'T'} />
       <PositionSection finalRoster={finalRoster} playerPosition={'IOL'} />
-      <PositionSection finalRoster={finalRoster} playerPosition={'DL'} />
+      <PositionSection finalRoster={finalRoster} playerPosition={'DT'} />
       <PositionSection finalRoster={finalRoster} playerPosition={'OLB'} />
       <PositionSection finalRoster={finalRoster} playerPosition={'LB'} />
       <PositionSection finalRoster={finalRoster} playerPosition={'CB'} />
@@ -25,4 +23,5 @@ const SectionContainer = () => {
     </div>
   )
 }
+
 export default SectionContainer

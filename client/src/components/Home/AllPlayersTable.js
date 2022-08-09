@@ -20,7 +20,7 @@ const AllPlayersTable = () => {
     if (finalRoster.length < 53) {
       // get selected player object from allPlayers
       const promotedPlayerObject = allPlayers.filter(
-        (p) => p.name === playerName.target.value
+        (p) => p.name === playerName
       )
 
       // add playerObject to finalRoster
@@ -29,39 +29,48 @@ const AllPlayersTable = () => {
       // remove chosen player in allPlayers
       setAllPlayers(
         allPlayers.filter((p) => {
-          return p.name !== playerName.target.value
+          return p.name !== playerName
         })
       )
 
       // deleting player from filter array
       setFilterArray(
         filterArray.filter((p) => {
-          return p.name !== playerName.target.value
+          return p.name !== playerName
         })
       )
     }
   }
 
   return (
-    <Flex
-      maxW="700px"
-      bg="blue"
-      p="20px"
-      alignItems="center"
-      justifyContent="center"
-    >
+    <Flex maxW="700px" alignItems="center" justifyContent="center">
       <Box
+        border="1px solid black"
         direction={{ base: 'column' }}
         w="full"
-        bg={{ md: 'green' }}
+        mt="15px"
         shadow="lg"
       >
         {selectFilter !== 'All' || inputFilter !== ''
           ? filterArray.map((p) => {
-              return <TableRow key={p._id} player={p} handleAdd={handleAdd} />
+              return (
+                <TableRow
+                  key={p._id}
+                  player={p}
+                  handleAction={handleAdd}
+                  Icon="add"
+                />
+              )
             })
           : allPlayers.map((p) => {
-              return <TableRow key={p._id} player={p} handleAdd={handleAdd} />
+              return (
+                <TableRow
+                  key={p._id}
+                  player={p}
+                  handleAction={handleAdd}
+                  Icon="add"
+                />
+              )
             })}
       </Box>
     </Flex>

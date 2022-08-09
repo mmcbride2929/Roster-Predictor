@@ -39,7 +39,7 @@ const PositionSelect = () => {
   }
 
   return (
-    <Select onChange={handleChange}>
+    <Select bg="white" shadow="sm" onChange={handleChange}>
       <option value="All">All</option>
       <option value="QB">QB</option>
       <option value="RB">RB</option>
@@ -48,7 +48,7 @@ const PositionSelect = () => {
       <option value="WR">WR</option>
       <option value="T">T</option>
       <option value="IOL">IOL</option>
-      <option value="DL">DL</option>
+      <option value="DT">DT</option>
       <option value="OLB">OLB</option>
       <option value="LB">LB</option>
       <option value="CB">CB</option>
