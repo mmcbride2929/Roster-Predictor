@@ -7,6 +7,13 @@ export const RosterProvider = ({ children }) => {
   const [allPlayers, setAllPlayers] = useState([])
   const [finalRoster, setFinalRoster] = useState([])
   const [filterArray, setFilterArray] = useState([])
+  const [teamAmount, setTeamAmount] = useState({
+    offense: 0,
+    defense: 0,
+    specialTeams: 0,
+  })
+
+  const [rosterLocked, setRosterLocked] = useState(false)
 
   // filters state
   const [selectFilter, setSelectFilter] = useState('All')
@@ -41,6 +48,10 @@ export const RosterProvider = ({ children }) => {
         setInputFilter,
         filterByName,
         filterByPosition,
+        teamAmount,
+        setTeamAmount,
+        rosterLocked,
+        setRosterLocked,
       }}
     >
       {children}

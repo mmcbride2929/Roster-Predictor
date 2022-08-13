@@ -1,10 +1,24 @@
+import RosterContext from '../../context/RosterContext'
+import { useContext } from 'react'
 import { chakra, Flex, Box } from '@chakra-ui/react'
 import { AddIcon, CloseIcon } from '@chakra-ui/icons'
 
 const TableRow = ({ player, handleAction, Icon }) => {
+  const { setRosterLocked, setTeamAmount, teamAmount } =
+    useContext(RosterContext)
+
   // formatting players name for display
   const firstInitial = player.name[0] + '.'
   const lastName = player.name.split(' ', 2)
+
+  const handleEdit = () => {
+    setTeamAmount(() => ({
+      offense: 0,
+      defense: 0,
+      specialTeams: 0,
+    }))
+    setRosterLocked(false)
+  }
 
   return (
     <Flex key={player._id}>
@@ -66,14 +80,33 @@ const TableRow = ({ player, handleAction, Icon }) => {
           _hover={{ cursor: 'pointer' }}
         >
           {Icon === 'add' ? (
-            <Box onClick={() => handleAction(player.name)}>
-              <AddIcon color="#515050" _hover={{ color: 'black' }} />
+            <Box
+              h="100%"
+              w="100%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              onClick={() => handleAction(player.name)}
+            >
+              <AddIcon
+                color="#515050"
+                onClick={() => handleEdit()}
+                _hover={{ color: 'black' }}
+              />
             </Box>
           ) : (
-            <Box onClick={() => handleAction(player.name)}>
+            <Box
+              h="100%"
+              w="100%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              onClick={() => handleAction(player.name)}
+            >
               <CloseIcon
                 boxSize="0.75rem"
                 color="#515050"
+                onClick={() => handleEdit()}
                 _hover={{ color: 'black' }}
               />
             </Box>

@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Results from './pages/Results'
 import Header from './components/global/Header'
 import { myTheme } from './theme/theme'
+import Footer from './components/global/Footer'
 
 const app = () => {
   return (
@@ -18,6 +19,7 @@ const app = () => {
               <Route path="/" element={<Home />} />
               <Route path="/results" element={<Results />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </RosterProvider>
       </ChakraProvider>

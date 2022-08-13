@@ -1,13 +1,15 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Box } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 const HomeButton = () => {
   return (
-    <div>
-      <Button size="sm" variant="outline">
-        <Link to="/">Home</Link>
-      </Button>
-    </div>
+    <Box ml="10px">
+      <Link to="/">
+        <Button size="sm" variant="outline">
+          Home
+        </Button>
+      </Link>
+    </Box>
   )
 }
 export default HomeButton

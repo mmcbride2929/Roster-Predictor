@@ -1,14 +1,14 @@
 
+***Now   
+- both pages need to start at top
+- use effect is re rendering every time we click home
 
-***Now
 
 
 
 ***Misc
-
 - favcon
-- create footer
-- update roster
+- make responsive
 - host
 
 
@@ -17,16 +17,26 @@
 
 
 *** results page
-
-- create a table with tabs, offense defense special teams, all players (show all by default
-t)
-
-- copy button and back button
-
-- create state that tells whether or not a section has been selected. render sections conditionally based on if anything has been selected or not
-just make an array of string states and cycle through each one
-
+- copy button  functional
 - incorporate copyTo Clipboard , and format the copy of the roster
 
 *** questions
 when do I keep a function/state in context and when do I keep it within a component
+
+  //why brackets+/*? Stepping into state?
+  // why can i use offense: but have to use dot notation and not just use offense: offense + 1
+  const handleTeamAmount = () => {
+    if (rosterLocked === false) {
+      setRosterLocked(true)
+      finalRoster.forEach((player) => {
+        if (player.team === 'Offense') {
+          setTeamAmount((teamAmount) => ({
+            ...teamAmount,
+            offense: teamAmount.offense + 1,
+          }))
+        }
+
+
+
+        why do functions trigger when a page renders
+        if do not have an empty function ()=> in front of them? even when written without()

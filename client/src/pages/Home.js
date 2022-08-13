@@ -19,7 +19,7 @@ const Home = () => {
       const response = await axios.get(`http://localhost:5000/api/v1/roster`)
 
       setAllPlayers(response.data)
-
+      console.log('triggered')
       setLoading(false)
     }
 

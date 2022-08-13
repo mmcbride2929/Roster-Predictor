@@ -44,13 +44,7 @@ const AllPlayersTable = () => {
 
   return (
     <Flex maxW="700px" alignItems="center" justifyContent="center">
-      <Box
-        border="1px solid black"
-        direction={{ base: 'column' }}
-        w="full"
-        mt="15px"
-        shadow="lg"
-      >
+      <Box border="1px solid black" w="full" mt="15px" shadow="lg">
         {selectFilter !== 'All' || inputFilter !== ''
           ? filterArray.map((p) => {
               return (

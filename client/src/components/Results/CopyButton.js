@@ -1,12 +1,12 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Box } from '@chakra-ui/react'
 
 const CopyButton = () => {
   return (
-    <div>
+    <Box ml="10px">
       <Button size="sm" w="65px" variant="outline">
         Copy
       </Button>
-    </div>
+    </Box>
   )
 }
 export default CopyButton
