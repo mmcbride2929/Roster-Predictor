@@ -3,18 +3,20 @@ import HomeButton from '../components/Results/HomeButton'
 import CopyButton from '../components/Results/CopyButton'
 import { Box } from '@chakra-ui/react'
 import ResultsHeader from '../components/Results/ResultsHeader'
+import ScrollToTop from '../components/Results/ScrollToTop'
 
 const Results = () => {
   return (
-    <Box p="15px">
-      <ResultsHeader />
-      <SectionContainer />
-
-      <Box display="flex" mt="15px" justifyContent="center">
-        <HomeButton />
-        <CopyButton />
+    <ScrollToTop>
+      <Box p="15px">
+        <ResultsHeader />
+        <SectionContainer />
+        <Box display="flex" mt="15px" justifyContent="center">
+          <HomeButton />
+          <CopyButton />
+        </Box>
       </Box>
-    </Box>
+    </ScrollToTop>
   )
 }
 export default Results

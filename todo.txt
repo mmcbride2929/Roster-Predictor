@@ -1,15 +1,12 @@
 
 ***Now   
-- both pages need to start at top
-- use effect is re rendering every time we click home
-
-
-
+- results pages need to start at top
+- make responsive
+- favcon
+- host
 
 ***Misc
-- favcon
-- make responsive
-- host
+
 
 
 *** homepage

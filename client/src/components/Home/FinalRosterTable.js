@@ -13,6 +13,7 @@ const FinalRosterTable = () => {
     setFinalRoster,
     selectFilter,
     filterArray,
+    inputFilter,
     setFilterArray,
   } = useContext(RosterContext)
 
@@ -28,7 +29,7 @@ const FinalRosterTable = () => {
     // add playerObject to filterArray if his position matches the filter
     if (
       removedPlayerObject[0].position === selectFilter ||
-      removedPlayerObject[0].position === 'All'
+      inputFilter !== ''
     ) {
       setFilterArray([...filterArray, removedPlayerObject[0]])
     }

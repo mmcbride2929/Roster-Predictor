@@ -41,8 +41,13 @@ const SearchBar = () => {
   return (
     <InputGroup position={'relative'} mt="15px">
       <InputLeftElement pointerEvents="none" children={<SearchIcon />} />
-      <Input variant="outline" onChange={handleChange} />
+      <Input
+        variant="outline"
+        _placeholder="search all players"
+        onChange={handleChange}
+      />
       <chakra.p
+        pointerEvents="none"
         position={'absolute'}
         top={{ base: '8px', md: '10px' }}
         left={{ base: '40px', md: '15px' }}

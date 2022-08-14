@@ -10,7 +10,7 @@ import PlayerCounter from '../components/Home/PlayerCounter'
 import ResultsButton from '../components/Home/ResultsButton'
 
 const Home = () => {
-  const { allPlayers, setAllPlayers } = useContext(RosterContext)
+  const { allPlayers, setAllPlayers, finalRoster } = useContext(RosterContext)
 
   const [loading, setLoading] = useState(true)
 
@@ -19,11 +19,14 @@ const Home = () => {
       const response = await axios.get(`http://localhost:5000/api/v1/roster`)
 
       setAllPlayers(response.data)
-      console.log('triggered')
       setLoading(false)
     }
 
-    fetchRoster()
+    if (finalRoster.length === 0) {
+      fetchRoster()
+    } else {
+      setLoading(false)
+    }
   }, [])
   return (
     <>
