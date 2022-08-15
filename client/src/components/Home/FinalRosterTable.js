@@ -43,13 +43,13 @@ const FinalRosterTable = () => {
   }
 
   return (
-    <Flex maxW="700px" alignItems="center" justifyContent="center">
+    <Flex w="275px" maxW="350px" alignItems="center" justifyContent="center">
       {finalRoster.length > 0 ? (
         <Box
           border="1px solid black"
           direction={{ base: 'column' }}
           w="full"
-          mt="15px"
+          mt="10px"
           shadow="lg"
         >
           {finalRoster.map((p) => {

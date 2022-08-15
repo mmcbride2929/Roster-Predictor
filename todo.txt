@@ -1,7 +1,9 @@
 
 ***Now   
-- results pages need to start at top
-- make responsive
+
+
+***home
+
 - favcon
 - host
 

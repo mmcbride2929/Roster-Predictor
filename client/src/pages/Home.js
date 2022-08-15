@@ -8,6 +8,7 @@ import FilterByContainer from '../components/Home/FilterByContainer'
 import RosterContext from '../context/RosterContext'
 import PlayerCounter from '../components/Home/PlayerCounter'
 import ResultsButton from '../components/Home/ResultsButton'
+import TableHeader from '../components/Home/TableHeader'
 
 const Home = () => {
   const { allPlayers, setAllPlayers, finalRoster } = useContext(RosterContext)
@@ -33,11 +34,24 @@ const Home = () => {
       {loading ? (
         <Box>Loading</Box>
       ) : (
-        <Box p="15px">
+        <Box p="15px" m="0 auto" maxW="650px">
           <PlayerCounter />
           <FilterByContainer />
-          <AllPlayersTable roster={allPlayers} />
-          <FinalRosterTable />
+          <Box
+            display="flex"
+            justifyContent="space-around"
+            alignItems={{ base: 'center', sm: 'start' }}
+            flexDir={{ base: 'column', sm: 'row' }}
+          >
+            <Box>
+              <TableHeader title={'Full Roster'} />
+              <AllPlayersTable roster={allPlayers} />
+            </Box>
+            <Box>
+              <TableHeader title={'Final Roster'} />
+              <FinalRosterTable />
+            </Box>
+          </Box>
           <ResultsButton />
         </Box>
       )}

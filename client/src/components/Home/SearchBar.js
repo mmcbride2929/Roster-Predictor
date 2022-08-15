@@ -49,8 +49,8 @@ const SearchBar = () => {
       <chakra.p
         pointerEvents="none"
         position={'absolute'}
-        top={{ base: '8px', md: '10px' }}
-        left={{ base: '40px', md: '15px' }}
+        top={{ base: '8px', sm: '8px' }}
+        left={{ base: '40px', sm: '40px' }}
       >
         {inputFilter === '' ? 'Search All Players' : ''}
       </chakra.p>
