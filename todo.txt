@@ -39,3 +39,7 @@ when do I keep a function/state in context and when do I keep it within a compon
 
         why do functions trigger when a page renders
         if do not have an empty function ()=> in front of them? even when written without()
+
+- need to work on folder structure, consistent naming conventions with all my heroku/github projects
+
+- also need to work on folder structure with gitignore/env etc

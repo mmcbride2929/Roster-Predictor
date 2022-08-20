@@ -35,7 +35,7 @@ const TableRow = ({ player, handleAction, Icon }) => {
         <Box w="100%">
           <Box
             textTransform="uppercase"
-            bg="white"
+            bg="#bcbcbc"
             w={{ base: 'full', md: 'full' }}
             display="flex"
             justifyContent="space-between"
@@ -51,7 +51,7 @@ const TableRow = ({ player, handleAction, Icon }) => {
             </chakra.p>
           </Box>
           <Box
-            bg="#bcbcbc"
+            bg="white"
             display="flex"
             justifyContent="space-between"
             fontSize="0.75rem"
