@@ -37,13 +37,13 @@ if (process.env.NODE_ENV === 'production') {
   app.get('/', (req, res) => res.send('Please set to production'))
 }
 
-const port = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000
 
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI)
-    app.listen(port, () => {
-      console.log(`server running on port ${port}`)
+    app.listen(process.env.PORT, () => {
+      console.log(`server running on port ${PORT}`)
     })
   } catch (error) {
     console.log(error)
