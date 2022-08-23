@@ -23,7 +23,7 @@ export const RosterProvider = ({ children }) => {
   const filterByName = (input) => {
     // filtering players by matching letter
     const matches = allPlayers.filter(
-      (player) => player.name.toLowerCase().indexOf(input) > -1
+      (player) => player.name.toLowerCase().indexOf(input.toLowerCase()) > -1
     )
     return matches
   }
@@ -31,6 +31,11 @@ export const RosterProvider = ({ children }) => {
   const filterByPosition = (players, filter) => {
     const results = players.filter((player) => player.position === filter)
     return results
+  }
+
+  const handleCopy = (section) => {
+    const test = section
+    console.log(JSON.stringify(test))
   }
 
   return (
@@ -52,6 +57,7 @@ export const RosterProvider = ({ children }) => {
         setTeamAmount,
         rosterLocked,
         setRosterLocked,
+        handleCopy,
       }}
     >
       {children}

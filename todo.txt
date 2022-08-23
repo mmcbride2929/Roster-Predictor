@@ -1,17 +1,10 @@
-
-***Now   
-
-
-***home
-
+TO FIX
+- search bar on mobile
+- loading before fetch look ASS
+- copy to clipboard
 - favcon
-- host
-
-***Misc
 
 
-
-*** homepage
 
 
 
