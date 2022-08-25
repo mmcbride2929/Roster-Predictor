@@ -1,8 +1,15 @@
 TO FIX
-- search bar on mobile
-- loading before fetch look ASS
-- copy to clipboard
-- favcon
+
+
+
+- env takeoff GitHub
+-mongoose.connect error
+- trevor challenge
+
+
+
+
+
 
 
 
@@ -36,3 +43,5 @@ when do I keep a function/state in context and when do I keep it within a compon
 - need to work on folder structure, consistent naming conventions with all my heroku/github projects
 
 - also need to work on folder structure with gitignore/env etc
+
+- how to get context to change when user uses keyboard to go back a page or forward

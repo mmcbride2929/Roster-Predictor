@@ -34,7 +34,9 @@ const Home = () => {
   return (
     <>
       {loading ? (
-        <Box>Loading</Box>
+        <Box minH="78vh" marginTop="50%" textAlign="center">
+          <p>Loading...</p>
+        </Box>
       ) : (
         <Box p="15px" m="0 auto" maxW="650px">
           <PlayerCounter />

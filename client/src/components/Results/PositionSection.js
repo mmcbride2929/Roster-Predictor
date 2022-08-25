@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Box, chakra } from '@chakra-ui/react'
+import RosterContext from '../../context/RosterContext'
 
 const PositionSection = ({ finalRoster, playerPosition }) => {
   const [positionRoom, setPositionRoom] = useState([])
+
+  const { setClipboard, rosterLocked } = useContext(RosterContext)
 
   const filterPosition = () => {
     const filteredPlayers = finalRoster.filter(
@@ -11,9 +14,28 @@ const PositionSection = ({ finalRoster, playerPosition }) => {
     return filteredPlayers
   }
 
+  // adding position room to state for copy
+  const handleClipboard = (results) => {
+    if (rosterLocked === true) {
+      setClipboard((prevState) => [
+        ...prevState,
+        playerPosition,
+        ...results.map((p) => {
+          return p.name
+        }),
+      ])
+    }
+
+    if (rosterLocked === false) {
+      setClipboard([])
+    }
+  }
+
   // on page load we are filtering players by position
   useEffect(() => {
-    setPositionRoom(filterPosition())
+    const results = filterPosition()
+    setPositionRoom(results)
+    handleClipboard(results)
   }, [])
 
   return (

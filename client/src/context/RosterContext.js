@@ -12,6 +12,7 @@ export const RosterProvider = ({ children }) => {
     defense: 0,
     specialTeams: 0,
   })
+  const [clipboard, setClipboard] = useState([])
 
   const [rosterLocked, setRosterLocked] = useState(false)
 
@@ -33,11 +34,6 @@ export const RosterProvider = ({ children }) => {
     return results
   }
 
-  const handleCopy = (section) => {
-    const test = section
-    console.log(JSON.stringify(test))
-  }
-
   return (
     <RosterContext.Provider
       value={{
@@ -57,7 +53,8 @@ export const RosterProvider = ({ children }) => {
         setTeamAmount,
         rosterLocked,
         setRosterLocked,
-        handleCopy,
+        clipboard,
+        setClipboard,
       }}
     >
       {children}

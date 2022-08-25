@@ -4,13 +4,8 @@ import { useContext } from 'react'
 import RosterContext from '../../context/RosterContext'
 
 const ResultsButton = () => {
-  const {
-    finalRoster,
-    teamAmount,
-    setTeamAmount,
-    rosterLocked,
-    setRosterLocked,
-  } = useContext(RosterContext)
+  const { finalRoster, setTeamAmount, rosterLocked, setRosterLocked } =
+    useContext(RosterContext)
 
   const handleTeamAmount = () => {
     if (rosterLocked === false) {

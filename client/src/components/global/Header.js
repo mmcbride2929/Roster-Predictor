@@ -1,8 +1,11 @@
 import Logo from '../../images/Logo.png'
 import { Link } from 'react-router-dom'
 import { chakra, Image, Flex } from '@chakra-ui/react'
+import { useContext } from 'react'
+import RosterContext from '../../context/RosterContext'
 
 const Header = () => {
+  const { setClipboard } = useContext(RosterContext)
   return (
     <Flex
       flexDirection="column"
@@ -12,7 +15,7 @@ const Header = () => {
       alignItems="center"
       p="20px"
     >
-      <Link to="/">
+      <Link to="/" onClick={() => setClipboard([])}>
         <Image src={Logo} w="80px" alt="Ravens Logo" />
       </Link>
 
