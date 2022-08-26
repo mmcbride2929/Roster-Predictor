@@ -131,3 +131,6 @@ dist
 
 # not modules
 **/node_modules
+
+# secret file 
+.env
