@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 import { RosterProvider } from './context/RosterContext'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ import Footer from './components/global/Footer'
 
 const app = () => {
   return (
-    <div className="app">
+    <Box className="app" minH="100vh" display="flex" flexDirection="column">
       <ChakraProvider theme={myTheme}>
         <RosterProvider>
           <BrowserRouter>
@@ -23,7 +23,7 @@ const app = () => {
           </BrowserRouter>
         </RosterProvider>
       </ChakraProvider>
-    </div>
+    </Box>
   )
 }
 

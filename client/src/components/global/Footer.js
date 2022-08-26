@@ -9,6 +9,7 @@ const Footer = () => {
 
   return (
     <Flex
+      marginTop="auto"
       flexDirection="column"
       bg="gray"
       justifyContent="
