@@ -3,15 +3,17 @@ import { useContext } from 'react'
 import RosterContext from '../../context/RosterContext'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const CopyButton = () => {
-  const { clipboard } = useContext(RosterContext)
+  const { clipboard, setClipboard } = useContext(RosterContext)
 
-  const handleCopy = () => {
-    const clipboardCopy = [...clipboard]
-    const arrayToString = clipboardCopy.toString().replace(/,/g, '\n')
+  const handleAlert = () => {
+    // const clipboardCopy = [...clipboard]
+    // const arrayToString = clipboardCopy.toString().replace(/,/g, '\n')
 
-    navigator.clipboard.writeText(arrayToString)
+    // setClipboard(arrayToString)
+    // navigator.clipboard.writeText(arrayToString)
 
     toast.success('Copied!', {
       position: 'top-right',
@@ -26,9 +28,11 @@ const CopyButton = () => {
 
   return (
     <Box ml="10px">
-      <Button onClick={handleCopy} size="sm" w="65px" variant="outline">
-        Copy
-      </Button>
+      <CopyToClipboard text={clipboard.toString().replaceAll(',', '\n')}>
+        <Button onClick={handleAlert} size="sm" w="65px" variant="outline">
+          Copy
+        </Button>
+      </CopyToClipboard>
       <ToastContainer />
     </Box>
   )
