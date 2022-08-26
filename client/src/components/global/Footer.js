@@ -1,6 +1,6 @@
 import Logo from '../../images/Logo.png'
 import { Link } from 'react-router-dom'
-import { chakra, Image, Flex } from '@chakra-ui/react'
+import { chakra, Box, Image, Flex } from '@chakra-ui/react'
 import { useContext } from 'react'
 import RosterContext from '../../context/RosterContext'
 
