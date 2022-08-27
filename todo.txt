@@ -1,9 +1,9 @@
 TO FIX
+format the way the final roster and first pages roster is laid out. make it look cleaner
 
 
 
 
-- env takeoff GitHub
 -mongoose.connect error
 - trevor challenge
 
